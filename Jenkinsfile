@@ -2,6 +2,11 @@
 pipeline{
     /**esse agent, significa qual agente pode executar**/
     agent any
+    //Posso usar essa maneira para não deixar a váriavel BRANCH solta no código, tipando da mesma forma
+    //que foi no jenkins
+    parameters{
+        string(name: 'BRANCH', defaultValue: 'Master', description: 'Branch name')
+    }
     //Aqui ness environment, eu posso criar variáveis. Que nesse caso é visivel em todo pipeline
     /**environment{
         BRANCH = 'Release'
