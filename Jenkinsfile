@@ -3,9 +3,9 @@ pipeline{
     /**esse agent, significa qual agente pode executar**/
     agent any
     //Aqui ness environment, eu posso criar variáveis. Que nesse caso é visivel em todo pipeline
-    environment{
+    /**environment{
         BRANCH = 'Release'
-    }
+    }**/
     /** Os stages substituem o comando NODE, que era usado na forma de script **/
     stages {
         stage('Esteira 1'){
