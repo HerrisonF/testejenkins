@@ -1,14 +1,23 @@
-node {
-    stage('Esteira 1'){
-        echo "Testes automatizados"
-    }
-    stage('Esteira 2'){
-        echo 'Sonar'
-    }
-    stage('Esteira 3'){
-        echo('Build do app')
-    }
-    stage('Esteira 4'){
-        echo('Subir na loja')
+/**Esse pipeline significa que vou fazer o script de forma declarativa**/
+pipeline{
+    /**esse agent, significa qual agente pode executar**/
+    agent any
+    /** Os stages substituem o comando NODE, que era usado na forma de script **/
+    stages {
+        stage('Esteira 1'){
+            steps {
+                echo 'step 1'
+            }
+        }
+        stage('Esteira 2'){
+            steps {
+                echo 'step 2'
+            }
+        }
+        stage('Esteira 3'){
+            steps{
+                echo 'step 3'
+            }
+        }
     }
 }
