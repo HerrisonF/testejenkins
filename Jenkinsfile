@@ -4,7 +4,7 @@ pipeline{
     agent any
     //Aqui ness environment, eu posso criar variáveis. Que nesse caso é visivel em todo pipeline
     environment{
-        BRANCH = 'Master'
+        BRANCH = 'Release'
     }
     /** Os stages substituem o comando NODE, que era usado na forma de script **/
     stages {
@@ -42,7 +42,7 @@ pipeline{
         }
         stage('Esteira 3'){
             when{
-                expression {  BRANCH ==~ /(RELEASE)/ }
+                expression {  BRANCH ==~ /(Release)/ }
             }
             steps{
                 echo 'step 3'
