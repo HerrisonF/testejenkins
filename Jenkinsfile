@@ -9,9 +9,20 @@ pipeline{
                 echo 'step 1'
             }
         }
-        stage('Esteira 2'){
-            steps {
-                echo 'step 2'
+        //Forçando que dois estágios aconteçam juntos, pra só dps vir o step posterior
+        stage('teste paralelo'){
+            //Essa chave parallel é quem faz a mágica. Ela precisa envolver os steps.
+            parallel{
+                stage('Esteira 2'){
+                    steps {
+                        echo 'step 2'
+                    }
+                }
+                stage('Esteira 2'){
+                    steps {
+                        echo 'step 2'
+                    }
+                }
             }
         }
         stage('Esteira 3'){
