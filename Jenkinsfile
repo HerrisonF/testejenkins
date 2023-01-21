@@ -13,14 +13,14 @@ pipeline{
         stage('teste paralelo'){
             //Essa chave parallel é quem faz a mágica. Ela precisa envolver os steps.
             parallel{
-                stage('Esteira 2'){
+                stage('Esteira 2 - A'){
                     steps {
-                        echo 'step 2'
+                        echo 'step 2 A'
                     }
                 }
-                stage('Esteira 2'){
+                stage('Esteira 2 - B'){
                     steps {
-                        echo 'step 2'
+                        echo 'step 2 B'
                     }
                 }
             }
