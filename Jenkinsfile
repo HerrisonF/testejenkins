@@ -15,6 +15,7 @@ pipeline{
             }
             steps {
                 echo 'step 1'
+                //O SH lê o comando de do texto, pelo que entendi
                 sh 'printenv'
             }
         }
@@ -23,23 +24,28 @@ pipeline{
             //Essa chave parallel é quem faz a mágica. Ela precisa envolver os steps.
             parallel{
                 stage('Esteira 2 - A'){
+                    //O when é um bloco condicionador.
+                    when {
+                        //Nesse caso, só vou executar o step 2 A, se a branch for Master ou hotfix
+                        expression { BRANCH ==~ /(Master|Hotfix)/ }
+                    }
                     steps {
                         echo 'step 2 A'
-                        sh 'printenv'
                     }
                 }
                 stage('Esteira 2 - B'){
                     steps {
                         echo 'step 2 B'
-                        sh 'printenv'
                     }
                 }
             }
         }
         stage('Esteira 3'){
+            when{
+                expression {  BRANCH ==~ /(RELEASE)/ }
+            }
             steps{
                 echo 'step 3'
-                sh 'printenv'
             }
         }
     }
