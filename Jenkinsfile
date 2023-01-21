@@ -1,4 +1,4 @@
-pipeline {
+node {
     stage('Esteira 1'){
         echo "Testes automatizados"
     }
